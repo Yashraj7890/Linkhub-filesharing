@@ -1,0 +1,189 @@
+.file-input {
+    display: none;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 20px;
+    height: 4px; 
+    background-color: black;
+    animation: blink 1s infinite;
+  }
+.signup-box {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-box-inner {
+    width: 20rem;
+    border: 1px solid rgb(214, 214, 214);
+    background-color: rgb(244, 244, 244);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.signup-box-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+}
+
+.create-account-btn {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-quicklink {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.signup-email {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.signup-password {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.signup-box-hr {
+    width: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+.heading-main {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+
+.subheading {
+    margin-top: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+
+.login-box-inner {
+    width: 20rem;
+    border: 1px solid rgb(214, 214, 214);
+    background-color: rgb(244, 244, 244);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-heading {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.login-btn-box {
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.sigunp-quick-link {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.loading-screen{
+    display: flex;
+    width:100vw;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+}
+.load-icon-box{
+    font-size: 2.5rem;
+    text-align: center ;
+}
+.load-txt{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.linkhub-box{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.linkhub-box-inner{
+   width:70%;
+   border: 1px solid rgb(214, 214, 214);
+   background-color: rgb(244, 244, 244);
+   border-radius: 12px;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.box{
+    margin-top: 3rem;
+    display: flex;
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+}
+.box-inner{
+    width:100%;
+}
+.upload-btn-box{
+    text-align: center;
+    margin-top: 2rem;
+   
+}
+.upload-btn{
+    width:8rem;
+}
+.logout-btn-box{
+    margin-top: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.logout-btn{
+    font-size: small;
+}
+.link-box{
+    text-align: center;
+    width:100%;
+    margin-top: 2rem;
+}
+.link{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-wrap: break-word;
+}
+.link-inner{
+    margin-left: auto;
+    margin-right:auto;
+    width:90%;
+}
+.info{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: bold;
+}
