@@ -237,7 +237,7 @@
 
 .upload-history-element-name {
     font-weight: bold;
-
+    word-wrap: break-word;
 }
 
 .upload-history-element-link {
