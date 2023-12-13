@@ -17,15 +17,19 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const data = { Email: input_email, Password: input_password };
     try {
       const result = await axios.post('https://linkhub-server.onrender.com/login', data, {
-        
         headers: { 'Content-Type': 'application/json' }
       });
+
+
+
       if (result.data.success) {
         window.localStorage.setItem("token", result.data.tkn);
         window.localStorage.setItem("loggedIn", true);
+        window.localStorage.setItem("user", input_email);
         window.location.href = "./access";
       }
       else {
@@ -44,6 +48,7 @@ function Login() {
     }
   }
   return (
+
     <div className='login-box'>
       <div>
         <div className='heading-main'>LinkHub<span className='cursor'></span></div>

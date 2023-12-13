@@ -40,7 +40,7 @@ export default function Signup() {
             <div className='heading-main'>LinkHub<span className='cursor'></span></div>
             </div>
             <div className='subheading'>
-            <div>File sharing made simple , signup to start sharing your files.</div> 
+            <div>File sharing made simple , signup to start sharing files.</div> 
             </div>
 
 
@@ -66,8 +66,6 @@ export default function Signup() {
                     <div className='login-quicklink'>
                     <Link to="/login">Have an account?</Link>
                     </div>
-                    
-
                 </form>
             </div>
                 

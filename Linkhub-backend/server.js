@@ -28,6 +28,10 @@ var userFiles = conn.model('userFile', new mongoose.Schema({
         type: String,
         required: true
     },
+    owner: {
+        type: String,
+        required: true
+    },
     downloadContent: {
         type: Number
     }
@@ -164,12 +168,15 @@ app.post("/authenticate", async (req, res) => {
 app.post("/fileUpload", upload.single("file"), async (req, res) => {
     const fileObj = {
         path: req.file.path,
-        name: req.file.originalname
+        name: req.file.originalname,
+        owner: req.body.owner,
     }
     try {
         const file = await userFiles.create(fileObj);
+        const historyArray = await userFiles.find({ owner: req.body.owner });
         res.status(200).send({
-            path: "https://linkhub-server.onrender.com/userFiles/" + file._id
+            path: "https://linkhub-server.onrender.com/userFiles/" + file._id,
+            history:historyArray
         })
     }
     catch (err) {
@@ -190,6 +197,23 @@ const download = async (req, res) => {
         console.log(err);
     }
 }
+app.post("/getHistory", async (req, res) => {
+    const user = req.body.username;
+    let historyArray = ["Error loading history",];
+    try {
+        historyArray = await userFiles.find({ owner: user });
+        res.status(200).send(historyArray)
+    }
+    catch (err) {
+        console.log(err);
+        res.status(200), send(historyArray);
+    }
+});
+
+app.post("/deleteFile", async (req, res) => {
+    await userFiles.findByIdAndDelete(req.body.fileId);
+}
+)
 app.get("/userFiles/:fileId", download)
 
 
