@@ -112,7 +112,7 @@ function Linkhub() {
                           <span className="upload-history-element-name col-sm-12 ">File Name: {item[2]}</span>
                           <div className="container">
                             <div className="row">
-                              <span className="upload-history-element-link col-lg-6 "><span style={{color:"black"}}>Link:</span> {"http://localhost:2000/userFiles/" + item[0]}</span>
+                              <span className="upload-history-element-link col-lg-6 "><span style={{color:"black"}}>Link:</span> {"https://linkhub-server.onrender.com/userFiles/" + item[0]}</span>
                               <span className="delete-icon-box col-lg-6 "><i class="fa-solid fa-trash delete-icon" onClick={() => handleDelete(index, item[0])}></i></span>
                             </div>
                           </div>
