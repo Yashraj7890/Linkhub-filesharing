@@ -241,6 +241,7 @@
 }
 
 .upload-history-element-link {
+    word-wrap: break-word;
     color: rgb(44, 90, 217);
 }
 
