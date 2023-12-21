@@ -108,16 +108,17 @@ function Linkhub() {
                   <div class="accordion-body">
                     <div class="history-list">
                       {uploadHistory.map((item, index) => (
-                        <div key={index} className="container upload-history-element-box"><div className="row">
-                          <span className="upload-history-element-name col-sm-12 ">File Name: {item[2]}</span>
+                        <div key={index} className="container upload-history-element-box">
+                        <div className="row">
+                          <span className="upload-history-element-name col-sm-12">File Name: {item[2]}</span>
                           <div className="container">
                             <div className="row">
-                              <span className="upload-history-element-link col-lg-6 "><span style={{color:"black"}}>Link:</span> {"https://linkhub-server.onrender.com/userFiles/" + item[0]}</span>
-                              <span className="delete-icon-box col-lg-6 "><i class="fa-solid fa-trash delete-icon" onClick={() => handleDelete(index, item[0])}></i></span>
+                              <span className="upload-history-element-link col-lg-6 col-sm-12"><span style={{color:"black"}}>Link:</span><span>{"https://linkhub-server.onrender.com/userFiles/" + item[0]}</span></span>
+                              <span className="delete-icon-box col-lg-6 col-sm-12"><i class="fa-solid fa-trash delete-icon" onClick={() => handleDelete(index, item[0])}></i></span>
                             </div>
                           </div>
-
-                        </div></div>
+                        </div>
+                        </div>
                       ))}
                     </div>
                   </div>
