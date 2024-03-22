@@ -43,13 +43,12 @@ const upload = multer({ dest: "uploads" });
 
 app.post("/signup", async (req, res) => {
     const { Email, Password } = req.body;
-
     try {
         const found = await user.findOne({ email: Email });
         if (found) {
             res.status(200).send({
                 success: false,
-                message: "email already in use"
+                message: "Email already in use"
             })
         }
         else {
@@ -83,7 +82,6 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-
     const { Email, Password } = req.body;
     try {
         const found = await user.findOne({ email: Email });
@@ -93,7 +91,6 @@ app.post("/login", async (req, res) => {
                 const token = jwt.sign({ email: Email }, process.env.JWT_SECRET, {
                     expiresIn: "1d"
                 });
-
                 res.status(200).send({
                     success: true,
                     message: "logged in",
@@ -214,11 +211,11 @@ app.post("/deleteFile", async (req, res) => {
     await userFiles.findByIdAndDelete(req.body.fileId);
 }
 )
-app.get("/userFiles/:fileId", download)
+app.get("/userFiles/:fileId", download);
 
 
 
 
 app.listen(2000, () => {
-    console.log("server is up at port 2000")
+    console.log("server is up at port 2000");
 })

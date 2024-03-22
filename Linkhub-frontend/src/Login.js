@@ -20,7 +20,7 @@ function Login() {
 
     const data = { Email: input_email, Password: input_password };
     try {
-      const result = await axios.post('https://linkhub-server.onrender.com/login', data, {
+      const result = await axios.post(process.env.REACT_APP_SERVER_URL+'/login', data, {
         headers: { 'Content-Type': 'application/json' }
       });
 

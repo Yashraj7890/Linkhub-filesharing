@@ -15,7 +15,7 @@ function App() {
       try {
         let data = ({ tkn: window.localStorage.getItem("token") });
 
-        let result = await axios.post('https://linkhub-server.onrender.com/authenticate', data);
+        let result = await axios.post(process.env.REACT_APP_SERVER_URL+'/authenticate', data);
         if (result.data.success) {
           setStatus(true);
         }

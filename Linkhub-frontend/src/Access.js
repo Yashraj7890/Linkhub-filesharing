@@ -4,7 +4,7 @@ import axios from 'axios';
 import Signup from './Signup.js';
 import Login from './Login.js';
 import Linkhub from './Linkhub.js';
-import swal from 'sweetalert';
+
 
 
 const Access = () => {
@@ -17,7 +17,7 @@ const Access = () => {
       try {
         let data = ({ tkn: window.localStorage.getItem("token") });
 
-        let result = await axios.post('https://linkhub-server.onrender.com/authenticate', data);
+        let result = await axios.post(process.env.REACT_APP_SERVER_URL+'/authenticate', data);
         if (result.data.success) {
           setStatus(true);
         }
