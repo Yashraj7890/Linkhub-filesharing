@@ -9,7 +9,7 @@ require('dotenv').config();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const corsOptions = {
-    origin: '*',
+    origin: process.env.CLIENT_URL,
     credentials: true,
     optionSuccessStatus: 200,
 }
@@ -172,7 +172,7 @@ app.post("/fileUpload", upload.single("file"), async (req, res) => {
         const file = await userFiles.create(fileObj);
         const historyArray = await userFiles.find({ owner: req.body.owner });
         res.status(200).send({
-            path: "https://linkhub-server.onrender.com/userFiles/" + file._id,
+            path: process.env.SERVER_URL+"/userFiles/" + file._id,
             history:historyArray
         })
     }

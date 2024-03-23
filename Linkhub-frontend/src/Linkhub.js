@@ -38,7 +38,7 @@ function Linkhub() {
       if (file) {
         if (file.size > MAX_FILE_SIZE) {
           swal("File too large!", "Please upload a file less than 45MB", "error");
-          setFile(''); // Clear the selected file after error
+          setFile('');
           return;
         }
         setUploading(true);
@@ -103,11 +103,11 @@ function Linkhub() {
 
             <div className="link-box">
               {uploading ?(
-                <div className="link-inner">
-                  <span className="loading-text"><i className="fa-solid fa-arrows-rotate fa-spin" style={{fontSize: '2rem'}}></i></span>
+                <div className="link-inner" style={{paddingBottom:"1rem"}}>
+                  <span className="loading-text"><i className="fa-solid fa-link fa-fade" style={{fontSize: '2rem'}}></i></span>
                 </div>
               ) : result ? (
-                <div className="link-inner">
+                <div className="link-inner" style={{paddingBottom:"1rem"}}>
                   <a className="link" href={result} target="_blank" >{result}</a>
                 </div>
               ) : (

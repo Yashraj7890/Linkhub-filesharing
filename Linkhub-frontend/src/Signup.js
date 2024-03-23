@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 export default function Signup() {
     const [input_email, setEmail] = useState('');
     const [input_password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const fill_email = (event) => {
         setEmail(event.target.value);
     }
@@ -17,6 +18,7 @@ export default function Signup() {
 
     const handlesubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
         const data = { Email: input_email, Password: input_password };
         try {
             const result = await axios.post(process.env.REACT_APP_SERVER_URL + '/signup', data, {
@@ -34,6 +36,8 @@ export default function Signup() {
         }
         catch (err) {
             console.log(err);
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -64,7 +68,9 @@ export default function Signup() {
                             <input type="password" className="form-control" id="exampleInputPassword1" onChange={fill_password} value={input_password} required></input>
                         </div>
                         <div className='create-account-btn'>
-                            <button type="submit" className="btn btn-primary">Sign Up</button>
+                            <button type="submit" className="btn btn-primary" disabled={isLoading}>
+                                {isLoading ? <i class="fa-solid fa-spinner fa-spin"></i> : 'Sign Up'}
+                            </button>
                         </div>
                         <div className='login-quicklink'>
                             <Link to="/login">Have an account?</Link>

@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 function Login() {
   const [input_email, setEmail] = useState('');
   const [input_password, setPassword] = useState('');
-
+  const [loading, setLoading] = useState(false);
   const fill_email = (event) => {
     setEmail(event.target.value);
   }
@@ -17,10 +17,10 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setLoading(true);
     const data = { Email: input_email, Password: input_password };
     try {
-      const result = await axios.post(process.env.REACT_APP_SERVER_URL+'/login', data, {
+      const result = await axios.post(process.env.REACT_APP_SERVER_URL + '/login', data, {
         headers: { 'Content-Type': 'application/json' }
       });
 
@@ -45,6 +45,8 @@ function Login() {
     }
     catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   }
   return (
@@ -69,7 +71,9 @@ function Login() {
             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
             <input type="password" className="form-control" id="exampleInputPassword1" onChange={fill_password} value={input_password} required></input>
           </div>
-          <div className='login-btn-box'><button type="submit" className="btn btn-success">LogIn</button></div>
+          <div className='login-btn-box'><button type="submit" className="btn btn-success" disabled={loading}>
+            {loading ? <i class="fa-solid fa-spinner fa-spin"></i> : 'Log In'}
+          </button></div>
           <div className='sigunp-quick-link'><Link to="/">Don't have an account?</Link></div>
 
         </form>
