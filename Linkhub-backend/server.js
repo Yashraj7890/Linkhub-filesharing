@@ -9,7 +9,7 @@ require('dotenv').config();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const corsOptions = {
-    origin: process.env.CLIENT_URL,
+    origin: "*",
     credentials: true,
     optionSuccessStatus: 200,
 }

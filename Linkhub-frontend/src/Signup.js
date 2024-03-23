@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link,useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./index.css"
@@ -8,6 +8,7 @@ export default function Signup() {
     const [input_email, setEmail] = useState('');
     const [input_password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
     const fill_email = (event) => {
         setEmail(event.target.value);
     }
@@ -17,6 +18,7 @@ export default function Signup() {
 
 
     const handlesubmit = async (event) => {
+        
         event.preventDefault();
         setIsLoading(true);
         const data = { Email: input_email, Password: input_password };
@@ -28,7 +30,8 @@ export default function Signup() {
                 window.localStorage.removeItem("token");
                 window.localStorage.removeItem("loggedIn");
                 window.localStorage.removeItem("user");
-                swal("Account created", "Your account has been successfully created now you can login to access Linkhub.", "success");
+                swal("Account created", "Login to access Linkhub.", "success");
+                navigate('/login');
             }
             else {
                 swal(result.data.message, "The email provided is already registered", "error");

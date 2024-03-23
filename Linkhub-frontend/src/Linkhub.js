@@ -98,7 +98,7 @@ function Linkhub() {
         <div className="box">
           <div className="box-inner">
             <div><div className="info">Please wait for sometime for the link to be generated after uploading a file.</div></div>
-            <div className="upload-btn-box"><button onClick={onUploadClick} className="btn btn-dark upload-btn">Upload</button></div>
+            <div className="upload-btn-box"><button onClick={onUploadClick} className="btn btn-dark upload-btn" disabled={uploading}>Upload</button></div>
             <div><input className="file-input" type="file" onChange={(e) => setFile(e.target.files[0])} ref={fileInputRef}></input></div>
 
             <div className="link-box">
