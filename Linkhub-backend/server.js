@@ -8,6 +8,8 @@ const user = require("./userModel");
 require('dotenv').config();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const fs= require("fs");
+
 const corsOptions = {
     origin: "*",
     credentials: true,
@@ -209,13 +211,14 @@ app.post("/getHistory", async (req, res) => {
 
 app.post("/deleteFile", async (req, res) => {
     try {
+
         const file = await userFiles.findById(req.body.fileId);
         fs.unlink(file.path, async (err) => {
             if (err) {
                 console.error("Error deleting file:", err);
                 return res.status(500).send({ error: "Error deleting file" });
             }
-        
+
             await userFiles.findByIdAndDelete(req.body.fileId);
             res.status(200).send({ message: "File deleted successfully" });
         });
