@@ -208,7 +208,21 @@ app.post("/getHistory", async (req, res) => {
 });
 
 app.post("/deleteFile", async (req, res) => {
-    await userFiles.findByIdAndDelete(req.body.fileId);
+    try {
+        const file = await userFiles.findById(req.body.fileId);
+        fs.unlink(file.path, async (err) => {
+            if (err) {
+                console.error("Error deleting file:", err);
+                return res.status(500).send({ error: "Error deleting file" });
+            }
+        
+            await userFiles.findByIdAndDelete(req.body.fileId);
+            res.status(200).send({ message: "File deleted successfully" });
+        });
+    } catch (err) {
+        console.error("Error deleting file:", err);
+        res.status(500).send({ error: "Error deleting file" });
+    }
 }
 )
 app.get("/userFiles/:fileId", download);
